@@ -1,0 +1,54 @@
+    <ion-header>
+        <ion-toolbar class="ion-text-center" color="primary">
+            <ion-buttons slot="start">
+                <ion-menu-button autoHide="false"></ion-menu-button>
+              </ion-buttons>
+          <ion-title>{{title}}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+
+<ion-content>
+  
+    <ion-card>
+        <ion-card-header>
+          <h1 class="ion-text-center" *ngIf="lessonData.nextId != 0">Day {{ lessonData.nextId }}</h1>
+          <ion-card-title>
+
+                <img *ngIf = "lessonData.image2 != ''" [src]="lessonData.image2"/>
+
+              <h1 class="ion-text-center">{{ lessonData.title }}</h1>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p class="ion-text-center"><i>{{lessonData.note}}</i></p><br>
+            <img style="max-height: 250px; "  [src]="lessonData.image"/>
+            <h2 class="ion-text-center"><strong>{{ lessonData.content_title }}</strong></h2>
+
+            <!-- Optional images start -->
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision1 != ''" [src]="lessonData.imagerevision1"/>
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision2 != ''" [src]="lessonData.imagerevision2"/>
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision3 != ''" [src]="lessonData.imagerevision3"/>
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision4 != ''" [src]="lessonData.imagerevision4"/>
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision5 != ''" [src]="lessonData.imagerevision5"/>
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision6 != ''" [src]="lessonData.imagerevision6"/>
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision7 != ''" [src]="lessonData.imagerevision7"/>
+                <img style="max-height: 200px; max-width: 200px;" *ngIf = "lessonData.imagerevision8 != ''" [src]="lessonData.imagerevision8"/>
+            <!-- Optional images end -->
+            <p class="ion-text-center">{{ lessonData.content }}</p>
+          
+            
+        
+          
+        </ion-card-content>
+      </ion-card>
+</ion-content>
+
+<ion-footer>
+<div class="ion-text-center ion-margin">
+  <ion-button size="small" shape="round" fill="outline" color="danger" (click)="homePage()">Exit</ion-button>
+  <ion-button *ngIf="nextId != 0" size="small" shape="round" fill="outline" color="warning" (click)="decrement(id,nextId)">Back</ion-button>
+  <ion-button size="small" slot="end" shape="round" fill="outline" color="primary" (click)="increment(id)">Continue</ion-button>
+
+</div>
+</ion-footer>

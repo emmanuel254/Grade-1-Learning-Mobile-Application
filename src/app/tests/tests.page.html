@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center" color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Examinations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-card>
+    <ion-card-header class="ion-text-center">Fill in the blank spaces below</ion-card-header>
+    <ion-card-content>
+      
+      <ion-item>
+        <ion-label>Select Country</ion-label>
+        <ionic-selectable [(ngModel)]="port" itemValueField="id"
+          itemTextField="name" [items]="ports" [canSearch]="true">
+          <ng-template ionicSelectableItemEndTemplate let-port="item"
+            let-isPortSelected="isItemSelected">
+            <!-- <img [src]="port.country.flagUrl" /> -->
+            <ion-thumbnail>
+              <img [src]="port.country.flagUrl">
+            </ion-thumbnail>
+            
+          </ng-template>
+          
+        </ionic-selectable>
+      </ion-item>
+    
+    <ion-label><strong>1. What is your name? </strong></ion-label><br>
+    <ion-input placeholder="Enter your name here" [(ngModel)]="name"></ion-input>
+    
+    <ion-label><strong>2. Which grade are you in?</strong></ion-label><br>
+    <ion-select placeholder="Enter here" [(ngModel)]="grade">
+      <ion-select-option value="1">Grade 1</ion-select-option>
+      <ion-select-option value="2">Grade 2</ion-select-option>
+      <ion-select-option value="3">Grade 3</ion-select-option>
+      <ion-select-option value="4">Grade 4</ion-select-option>
+      <ion-select-option value="5">Above Grade 4</ion-select-option>
+    </ion-select>
+    
+    <ion-label><strong>3. Which fruit do you like most?</strong></ion-label><br>
+    <ion-select multiple="true" placeholder="Pick here" [(ngModel)]="fruits">
+      <ion-select-option value="Mangoes">Mangoes</ion-select-option>
+      <ion-select-option value="Oranges">Oranges</ion-select-option>
+      <ion-select-option value="Pineaples">Pineaples</ion-select-option>
+      <ion-select-option value="Bananas">Bananas</ion-select-option>
+      <ion-select-option value="Apples">Apples</ion-select-option>
+      <ion-select-option value="Pawpaw">Pawpaw</ion-select-option>
+    </ion-select>
+    <ion-item>4.
+      <ion-thumbnail slot="start">
+        <img src="../../assets/images/frog.jpeg">
+      </ion-thumbnail>
+      <ion-label>This is a?</ion-label>
+      <ion-select placeholder="Enter here" [(ngModel)]="animal">
+        <ion-select-option value="frog">Frog</ion-select-option>
+        <ion-select-option value="fish">Fish</ion-select-option>
+        <ion-select-option value="cow">Cow</ion-select-option>
+      </ion-select>
+    </ion-item>5.
+    <p class="ion-text-center ion-padding">The number below is number?</p>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../assets/images/five.webp">
+      </ion-thumbnail>
+      <ion-label>This is :</ion-label>
+      <ion-select placeholder="Enter here" [(ngModel)]="number">
+        <ion-select-option value="1">One</ion-select-option>
+        <ion-select-option value="2">Two</ion-select-option>
+        <ion-select-option value="3">Three</ion-select-option>
+        <ion-select-option value="4">Four</ion-select-option>
+        <ion-select-option value="5">Five</ion-select-option>
+        <ion-select-option value="6">Six</ion-select-option>
+      </ion-select>
+    </ion-item><br>
+    
+    <ion-label><strong>6. Father, Mother, Sisters, Brothers are</strong></ion-label><br>
+    <ion-select placeholder="Pick here" [(ngModel)]="family">
+      <ion-select-option value="fm">Family members</ion-select-option>
+      <ion-select-option value="ng">Neighbours</ion-select-option>
+      <ion-select-option value="st">Stangers</ion-select-option>
+      <ion-select-option value="idk">I dont Know</ion-select-option>
+    </ion-select>
+    
+    <ion-button (click)="cancelTest()" color="danger">Exit</ion-button>
+    <ion-button (click)="submitTest()" size="medium" color="success" [disabled]="!name || !grade || !family ||!fruits || !animal ||!number">Finish</ion-button>
+  </ion-card-content>
+</ion-card>
+
+
+
+</ion-content>
